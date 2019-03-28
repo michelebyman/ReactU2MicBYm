@@ -1,0 +1,18 @@
+.input {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 10px;
+    outline: none;
+}
+
+
+.btnAdd {
+    background-color: #00aa00;
+    margin-right: 10px;
+}
+
+.btnRemove {
+    background-color: #cd0023;
+}

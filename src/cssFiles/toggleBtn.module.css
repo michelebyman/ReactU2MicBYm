@@ -1,0 +1,13 @@
+.trueColor {
+    color: #00aa00;
+    font-size: 24px;
+}
+
+.falseColor {
+    color: #cd0023;
+    font-size: 24px;
+}
+
+.ToggleBtn{
+    background-color: #009da3;
+}
