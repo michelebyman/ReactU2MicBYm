@@ -9,7 +9,7 @@ class CardComponent extends Component {
     return (
       <div>
         <div className={styles.card}>
-          <h3>{this.props.cardHeader}</h3>
+          <h3 className={styles.header}>{this.props.cardHeader}</h3>
           {this.props.children}   
         </div>
       </div>

@@ -10,4 +10,35 @@
     padding: 40px;
     color: #009499;
     box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.62);
+    animation: fadeIn 1s ease;
+  }
+
+  .header {
+    animation: moveInTop 1s ease-out;
+  }
+
+  @keyframes moveInTop {
+    0% {
+      opacity: 0;
+      transform: translateY(-30px)
+    }
+
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+      
+    }
+
+
+    100% {
+      opacity: 1;
+    
+    }
   }

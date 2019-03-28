@@ -15,7 +15,6 @@ class AddRemoveUser extends Component {
   
  // calls a function passing a value as an argument and prevent the site to reload the whole page
   handleAddUserOnSubmit = (event) => {
-   event.preventDefault();
     if (this.state.value) {
       this.props.setNewUser(this.state.value);
     }
@@ -40,15 +39,11 @@ class AddRemoveUser extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleAddUserOnSubmit}>
-
           <input maxLength="30" type="text" value={this.state.value} placeholder="new user..." onChange={this.handleNewUser}  className={styles.input}/>
 
-          <button type="submit" value="submit" className={`btn ${styles.btnAdd}`} >Add</button>
+          <button onClick={this.handleAddUserOnSubmit} className={`btn ${styles.btnAdd}`} >Add</button>
 
           <button onClick={this.removeUser} className={`btn ${styles.btnRemove}`}>Remove</button>
-
-        </form>
       </div>
     )
   }
