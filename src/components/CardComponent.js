@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styles from '../cssFiles/card.module.css';
 
-
+// displays the card and the structure it gets from props
 class CardComponent extends Component {
 
 

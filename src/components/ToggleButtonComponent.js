@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import styles from '../cssFiles/toggleBtn.module.css';
 
+//handle toggle function and changes the color of the user list
+
 class ToggleButtonComponent extends Component {
 
   constructor(props) {
@@ -10,6 +12,7 @@ class ToggleButtonComponent extends Component {
     }
   }
 
+  // change value and setState to the opposite 
   toggleColorUserList = () => {
       this.setState({
         toggleColor: !this.state.toggleColor

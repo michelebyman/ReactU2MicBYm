@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import styles from '../cssFiles/addRemoveUser.module.css';
 
+// handle users, removes existing users add new users 
+
 class AddRemoveUser extends Component {
 
   constructor(props){
@@ -11,10 +13,9 @@ class AddRemoveUser extends Component {
   }
 
   
-
+ // calls a function passing a value as an argument and prevent the site to reload the whole page
   handleAddUserOnSubmit = (event) => {
    event.preventDefault();
-
     if (this.state.value) {
       this.props.setNewUser(this.state.value);
     }
@@ -23,12 +24,14 @@ class AddRemoveUser extends Component {
     })
   }
 
+  // sets the new value every time we type anything in the input field
    handleNewUser = (event) => {
       this.setState({
         value: event.target.value
       })  
    }
 
+   // calls a function which removes and updates the new userList
    removeUser = () => { 
          this.props.removeUserFromApp()
    }

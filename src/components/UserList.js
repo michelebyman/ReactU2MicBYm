@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import styles from '../cssFiles/UserList.module.css';
 
+// displays the user list after mapping through the an array 
 class UserList extends Component {
 
   render() {
-      const users = this.props.users.map((item, i) => {
+    // maps through the array that comes from the the app.js returns every item in the list as an list Item
+      const users = this.props.users.map((item, i) => {        
         return <li key={i}>{item}</li>
     })
 

@@ -12,7 +12,7 @@ class App extends Component {
    constructor(props) {
      super(props);
      this.state = {
-       userList: [' Kalle ', 'Anka']
+       userList: ['Kalle ', 'Anka']
      }
    }
 
