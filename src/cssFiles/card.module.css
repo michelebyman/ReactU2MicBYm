@@ -13,6 +13,13 @@
     animation: fadeIn 1s ease;
   }
 
+  .ShowContentBtn {
+    background-color: #009da3;
+    width: 200px;
+    animation: moveInBottom 0.5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+
   .header {
     animation: moveInTop 1s ease-out;
   }

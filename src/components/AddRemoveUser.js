@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import styles from '../cssFiles/addRemoveUser.module.css';
+import PropTypes from 'prop-types'
 
 // handle users, removes existing users add new users 
 
 class AddRemoveUser extends Component {
+  static propTypes = {
+    setNewUser: PropTypes.func,
+    removeUserFromApp: PropTypes.func
+  }
 
   constructor(props){
     super(props);

@@ -1,59 +1,29 @@
 import React, { Component } from 'react';
 import './App.css';
-import CardComponent from './components/CardComponent'
-import ShowContentButton from './components/ShowContentButton'
-import ToggleButtonComponent from './components/ToggleButtonComponent'
-import AddRemoveUser from './components/AddRemoveUser'
-import UserList from './components/UserList'
+import DashboardComponent from './Screens/Dashboard/DashboardComponent'
+import User from './Screens/User/User'
+import NavbarComponent from './components/NavbarComponent'
+import { BrowserRouter as Router , Route } from 'react-router-dom'
+import LoginComponent from './Screens/Login/LoginComponent';
+// import { Route, Redirect } from 'react-router'
 
 // render all the components and holds the list of users
 class App extends Component {
 
-   constructor(props) {
-     super(props);
-     this.state = {
-       userList: ['Kalle ', 'Anka']
-     }
-   }
-
-// change the string(with a user from input) to an Array, makes a new list, set the new state
-   setNewUser = (newUser) => {
-      const stringToArray = [newUser];
-      const allUsers = this.state.userList.concat(stringToArray)
-     this.setState({
-       userList: allUsers
-     })
-   }
-
-   //create a new array (removes one user), set the new state and update the userList
-   removeUserFromApp = () => {
-     const reduceUserList = this.state.userList.slice(0,this.state.userList.length -1);
-      this.setState({
-        userList: reduceUserList
-      })
-   }
 
    // renders the components with JSX 
   render() {
     return (
-      <div className="App">
+      <div className="wrapper">
+      
+      <Router>
+        <NavbarComponent/>
 
-      <CardComponent cardHeader="User list">
-          <ShowContentButton>
-            <ToggleButtonComponent> 
-              <UserList users={this.state.userList}/>
-            </ToggleButtonComponent> 
-          </ShowContentButton>  
-      </CardComponent>
-
-      <CardComponent cardHeader="Add and Remove User">
-        <ShowContentButton>
-          <AddRemoveUser 
-          setNewUser={this.setNewUser}
-          removeUserFromApp={this.removeUserFromApp}
-          />
-        </ShowContentButton>
-      </CardComponent>
+        <Route path="/dashboard" exact component={DashboardComponent}/>
+        <Route path="/login" exact component={LoginComponent}/>
+        <Route path="/user" exact component={User}/>
+        <Route path="/user/:user" exact component={User}/>
+      </Router>
       </div>
     );
   }

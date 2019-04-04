@@ -11,6 +11,50 @@
     animation: moveInRight 2s ease-in;
 }
 
+.trueColor {
+    color: #00aa00;
+    font-size: 24px;
+    text-decoration: none;  
+    font-weight: bold;
+}
+
+.falseColor {
+    color: #cd0023;
+    font-size: 24px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.ShowContentBtn {
+    background-color: grey;
+    width: 200px;
+    animation: moveInBottom 0.5s ease-out .75s;
+    animation-fill-mode: backwards;
+  }
+
+.ToggleBtn {
+    background-color: #009da3;
+    animation: moveInLeft 2s ease-in-out;
+}
+
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px)
+    }
+
+    80% {
+        transform: translateX(10px)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+
+
 @keyframes moveInRight {
     0% {
         opacity: 0;
