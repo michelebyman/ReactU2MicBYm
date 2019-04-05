@@ -2,11 +2,17 @@ import React, { Component } from 'react';
 import CardComponent from '../.././components/CardComponent'
 import AddRemoveUser from '../.././components/AddRemoveUser'
 import UserList from '../.././components/UserList'
+import PropTypes from 'prop-types'
 
 
 
-// render all the components and holds the list of users
+// render all the components besides the Navbar and holds the list of users
 class DashboardComponent extends Component {
+  static propTypes = {
+    history: PropTypes.object,
+    location: PropTypes.object,
+    match: PropTypes.object
+  }
 
    constructor(props) {
      super(props);
@@ -64,12 +70,14 @@ class DashboardComponent extends Component {
       const isNotActive = allUsersWithId.filter((item)=>
         !item.isActive
       )
+  
+      
       const completeList = isActive.concat(isNotActive);
       
       //Sorts the list so the list is written in order by id
       completeList.sort(function(a, b) { 
         return a.id - b.id;
-      });
+      });  
             
      this.setState({
        userList: completeList

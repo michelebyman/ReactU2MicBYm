@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styles from '../cssFiles/addRemoveUser.module.css';
 import PropTypes from 'prop-types'
 
-// handle users, removes existing users add new users 
+// handle users, removes existing users and add new users 
 
 class AddRemoveUser extends Component {
   static propTypes = {
@@ -18,7 +18,7 @@ class AddRemoveUser extends Component {
   }
 
   
- // calls a function passing a value as an argument and prevent the site to reload the whole page
+ // calls a function passing a value as an argument 
   handleAddUserOnSubmit = (event) => {
     if (this.state.value) {
       this.props.setNewUser(this.state.value);

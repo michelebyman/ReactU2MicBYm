@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     width: 450px;
-    min-height: 400px;
+    height: max-content;
     background-color: white;
     border-radius: 10px;
     margin: 10px;
@@ -22,6 +22,12 @@
 
   .header {
     animation: moveInTop 1s ease-out;
+  }
+
+  .para{
+    color: blue;
+    padding: 10px;
+    text-align: center;
   }
 
   @keyframes moveInTop {

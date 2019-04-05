@@ -1,9 +1,22 @@
 import React, { Component } from 'react'
 import {Redirect} from 'react-router-dom'
+import CardComponent from '../.././components/CardComponent'
+import Styles from './user.module.css'
+import PropTypes from 'prop-types'
 
+
+// 
 class User extends Component  {
+  static propTypes = {
+    history: PropTypes.object,
+    location: PropTypes.object,
+    match: PropTypes.object
+  }
+
   render() {
     const { match } = this.props;
+
+    //Fun solution below
     // let user = location.pathname;
     // user = user.replace('/user/', '');
     //  console.log(match);
@@ -14,11 +27,19 @@ class User extends Component  {
     
     return (
       <div>
-        {/* {user !== '/user' ? <h1>  Selected user:  {user} </h1> : <h1> No user selected </h1>} */}
-        {/* { match.params.user ? <h1>  Selected user:  {match.params.user } </h1> : <h1> No user selected </h1>} */}
-        { match.params.user ? <h1>  Selected user:  {match.params.user } </h1> : <Redirect from="/user" to="/login"/>}
-        {/* { match.params.user ? <h1>  Selected user:  {match.params.user } </h1> : <h1> No user selected </h1>} */}
-        
+        <CardComponent>
+          <div className={Styles.div}>
+            {/* the code below is for the fun solution */}
+            {/* {user !== '/user' ? <h1>  Selected user:  {user} </h1> : <h1> No user selected </h1>} */}
+          
+            {/* This code is fot G */}
+            {/* { match.params.user ? <h1>  Selected user:  {match.params.user } </h1> : <h1> No user selected </h1>} */}
+            
+            {/* This code is fot VG */}
+            { match.params.user ? <h1>  Selected user:  {match.params.user } </h1> : <Redirect from="/user" to="/login"/>}
+            
+        </div>
+        </CardComponent>
       </div>
     )
   }

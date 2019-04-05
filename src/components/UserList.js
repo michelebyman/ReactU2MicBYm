@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 
-// displays the user list after mapping through the an array 
+// displays the user list after mapping through an array 
 class UserList extends Component {
   static propTypes = {
     users: PropTypes.array
@@ -17,12 +17,12 @@ class UserList extends Component {
        showActiveOrNotActive: true
      }
    }
+
+    // change value and setState to the opposite 
    showActiveOrNotActive = () => {
      this.setState({
        showActiveOrNotActive: !this.state.showActiveOrNotActive
-     })
-     console.log(this.state.showActiveOrNotActive);
-     
+     })  
    }
 
    // change value and setState to the opposite 
@@ -33,40 +33,26 @@ class UserList extends Component {
          }
 
   render() {
+
     // maps through the array that comes from the the app.js returns every item in the list as an list Item
-      const users = this.props.users.map((item, i) => {
-
-        if (this.state.showActiveOrNotActive) { 
-          if (item.isActive) {
-            return (
-              <Link key={i} to={`/user/${item.name}`} className={ this.state.toggleColor ? styles.trueColor : styles.falseColor}> 
-            <li>{item.id} {item.name}
-            {item.isActive ? ' User is: Active' : ' User is: not active'}
-            </li>
-            </Link> 
-            )
-        } 
-      } else {
-        if (!item.isActive) {
-          return (
-            <Link key={i} to={`/user/${item.name}`} className={ this.state.toggleColor ? styles.trueColor : styles.falseColor}> 
-          <li>{item.id} {item.name}
-          {item.isActive ? ' User is: Active' : ' User is: not active'}
-          </li>
-          </Link> 
-          )
-      } 
-      }  
-    })
-    
-
+    //checks if the state is true or not then filter a new list of users, sets a Link to a user-page
+    const users = this.props.users.filter(user => this.state.showActiveOrNotActive === user.isActive).map((user, i) =>
+        <Link key={i} to={`/user/${user.name}`} className={ this.state.toggleColor ? styles.trueColor : styles.falseColor}> 
+        <li className={styles.listItem}>{user.id} {user.name} <br/>
+        <p className={styles.activeOrNot}>
+        {user.isActive ? ' User is: Active' : ' User is: not active'}
+        </p>
+        </li>
+        </Link> 
+    );
+  
     return (
       <div className={styles.divWrapper}>
       <Fragment>
               {this.state.showActiveOrNotActive ?
-              <button onClick={this.showActiveOrNotActive}  className={`btn ${styles.ShowContentBtn}`}>Show Active</button>
+              <button onClick={this.showActiveOrNotActive}  className={`btn ${styles.ShowInActive}`}>Show Inactive</button>
               :
-              <button onClick={this.showActiveOrNotActive}  className={`btn ${styles.ShowContentBtn}`}>Show Inactive</button>}
+              <button onClick={this.showActiveOrNotActive}  className={`btn ${styles.ShowActive}`}>Show Active</button>}
           </Fragment>
         <ul className={styles.userList}>
          {users} 

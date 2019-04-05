@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import styles from '../cssFiles/Navbar.module.css';
 import {NavLink} from 'react-router-dom'
 
-
+// navbar and handle the NavLinks and navigate to the selected pages
 class NavbarComponent extends Component {
   render() {
     return (

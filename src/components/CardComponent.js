@@ -6,7 +6,7 @@ import PropTypes from 'prop-types'
 class CardComponent extends Component {
    static propTypes = {
     myInfo: PropTypes.string,
-    cardHeader: PropTypes.string
+    cardHeader: PropTypes.string,
   }
 
   constructor(props) {
@@ -16,6 +16,7 @@ class CardComponent extends Component {
     }
   }
 
+  // sets a state and show or hide content
   showAndHideContent = () => {
     this.setState({
       showOrHide: !this.state.showOrHide
@@ -28,7 +29,7 @@ class CardComponent extends Component {
         <div className={styles.card}>
           <h3 className={styles.header}>{this.props.cardHeader}</h3>
           {this.props.children}
-          {this.state.showOrHide && <div> {this.props.myInfo} </div>}
+          {this.state.showOrHide && <p className={styles.para}> {this.props.myInfo} </p>}
           {this.props.myInfo &&
             <Fragment>
                {this.state.showOrHide ?
