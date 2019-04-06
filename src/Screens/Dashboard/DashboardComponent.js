@@ -6,7 +6,8 @@ import PropTypes from 'prop-types'
 
 
 
-// render all the components besides the Navbar and holds the list of users
+
+// render all the components besides the Navbar/User and holds the list of users
 class DashboardComponent extends Component {
   static propTypes = {
     history: PropTypes.object,
@@ -70,12 +71,10 @@ class DashboardComponent extends Component {
       const isNotActive = allUsersWithId.filter((item)=>
         !item.isActive
       )
-  
-      
       const completeList = isActive.concat(isNotActive);
       
       //Sorts the list so the list is written in order by id
-      completeList.sort(function(a, b) { 
+      completeList.sort((a, b) => { 
         return a.id - b.id;
       });  
             
@@ -98,15 +97,16 @@ class DashboardComponent extends Component {
       <div className="wrapper">
       
       <CardComponent cardHeader="User list">
-              <UserList users={this.state.userList}/>
+        <UserList users={this.state.userList}/>
       </CardComponent>
 
       <CardComponent cardHeader="Add and Remove User">
-          <AddRemoveUser 
+        <AddRemoveUser 
           setNewUser={this.setNewUser}
           removeUserFromApp={this.removeUserFromApp}
-          />
+        />
       </CardComponent>
+
       </div>
     );
   }

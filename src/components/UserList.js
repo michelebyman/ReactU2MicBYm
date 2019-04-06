@@ -14,7 +14,7 @@ class UserList extends Component {
      super(props);
      this.state = {
        toggleColor: true,
-       showActiveOrNotActive: true
+       showActiveOrNotActive: true,
      }
    }
 
@@ -35,30 +35,51 @@ class UserList extends Component {
   render() {
 
     // maps through the array that comes from the the app.js returns every item in the list as an list Item
-    //checks if the state is true or not then filter a new list of users, sets a Link to a user-page
-    const users = this.props.users.filter(user => this.state.showActiveOrNotActive === user.isActive).map((user, i) =>
-        <Link key={i} to={`/user/${user.name}`} className={ this.state.toggleColor ? styles.trueColor : styles.falseColor}> 
-        <li className={styles.listItem}>{user.id} {user.name} <br/>
-        <p className={styles.activeOrNot}>
-        {user.isActive ? ' User is: Active' : ' User is: not active'}
-        </p>
-        </li>
+    //checks if the state is true or not and match it with another state then filter a new list of users, sets a Link 
+    const users = this.props.users.filter(user => 
+      this.state.showActiveOrNotActive === user.isActive).map((user, i) =>
+        <Link key={i} to={`/user/${user.name}`} 
+          className={ this.state.toggleColor ? styles.trueColor : styles.falseColor}> 
+          <li className={styles.listItem}>
+            {user.id} 
+            {user.name}
+            <p className={styles.activeOrNot}>
+              {user.isActive ? ' User is: Active' : ' User is: not active'}
+            </p>
+          </li>
         </Link> 
     );
   
     return (
       <div className={styles.divWrapper}>
-      <Fragment>
-              {this.state.showActiveOrNotActive ?
-              <button onClick={this.showActiveOrNotActive}  className={`btn ${styles.ShowInActive}`}>Show Inactive</button>
-              :
-              <button onClick={this.showActiveOrNotActive}  className={`btn ${styles.ShowActive}`}>Show Active</button>}
-          </Fragment>
+        <Fragment>
+          {this.state.showActiveOrNotActive ?
+            <button 
+              onClick={this.showActiveOrNotActive}  
+              className={`btn ${styles.ShowInActive}`}
+            >
+            Show Inactive
+            </button>
+          :
+            <button 
+              onClick={this.showActiveOrNotActive}  
+              className={`btn ${styles.ShowActive}`}
+            >
+              Show Active
+            </button>}
+        </Fragment>
+
         <ul className={styles.userList}>
          {users} 
         </ul>
         
-        <button onClick={this.toggleColorUserList} className={`btn ${styles.ToggleBtn}`}>Toggle Color</button>
+        <button 
+          onClick={this.toggleColorUserList} 
+          className={`btn ${styles.ToggleBtn}`}
+        >
+          Toggle Color
+        </button>
+        
       </div>
     )
   }

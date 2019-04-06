@@ -46,12 +46,24 @@ class LoginComponent extends Component {
   render() {
     return (
       <div>
-          <CardComponent myInfo="You need to click on the login button to login and use 7 letters to be able to login :) ">
+        <CardComponent myInfo="You need to click on the login button to login and use 7 letters to be able to login :) ">
 
-            <input maxLength="30" type="text" value={this.state.value} placeholder="Login.." onChange={this.getUser}  className={styles.input}/>
+          <input 
+            maxLength="30" 
+            type="text" 
+            value={this.state.value} 
+            placeholder="Login.." 
+            onChange={this.getUser}  
+            className={styles.input}
+          />
 
-            <button onClick={this.navigate} className={`btn ${styles.btnAdd}`}>Login</button>
-          </CardComponent>
+          <button 
+            onClick={this.navigate} 
+            className={`btn ${styles.btnAdd}`}
+          >
+            Login
+          </button>
+        </CardComponent>
         
       </div>
     )

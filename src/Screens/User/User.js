@@ -22,6 +22,8 @@ class User extends Component  {
     //  console.log(match);
     //  console.log('hello', match.params.user);
     //  console.log('hello', user);
+   
+    
      
      
     
@@ -36,7 +38,8 @@ class User extends Component  {
             {/* { match.params.user ? <h1>  Selected user:  {match.params.user } </h1> : <h1> No user selected </h1>} */}
             
             {/* This code is fot VG */}
-            { match.params.user ? <h1>  Selected user:  {match.params.user } </h1> : <Redirect from="/user" to="/login"/>}
+            <h1 className={Styles.h1}>Selected user: </h1>
+            { match.params.user ? <p className={Styles.p}> {match.params.user } </p> : <Redirect from="/user" to="/login"/>}
             
         </div>
         </CardComponent>

@@ -29,13 +29,24 @@ class CardComponent extends Component {
         <div className={styles.card}>
           <h3 className={styles.header}>{this.props.cardHeader}</h3>
           {this.props.children}
-          {this.state.showOrHide && <p className={styles.para}> {this.props.myInfo} </p>}
+          {this.state.showOrHide && 
+          <p className={styles.para}> {this.props.myInfo} </p>}
           {this.props.myInfo &&
             <Fragment>
                {this.state.showOrHide ?
-                <button onClick={this.showAndHideContent}  className={`btn ${styles.ShowContentBtn}`}>Hide Info</button>
+                  <button 
+                    onClick={this.showAndHideContent}  
+                    className={`btn ${styles.ShowContentBtn}`}
+                  >
+                    Hide Info
+                  </button>
                 :
-                <button onClick={this.showAndHideContent}  className={`btn ${styles.ShowContentBtn}`}>Show info</button>}
+                  <button 
+                    onClick={this.showAndHideContent}  
+                    className={`btn ${styles.ShowContentBtn}`}
+                  >
+                  Show info
+                </button>}
             </Fragment>
           }
         </div>

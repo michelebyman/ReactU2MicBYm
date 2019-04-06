@@ -44,11 +44,27 @@ class AddRemoveUser extends Component {
   render() {
     return (
       <div>
-          <input maxLength="30" type="text" value={this.state.value} placeholder="new user..." onChange={this.handleNewUser}  className={styles.input}/>
+        <input 
+          maxLength="25" type="text" 
+          value={this.state.value} 
+          placeholder="new user..." 
+          onChange={this.handleNewUser}  
+          className={styles.input}
+        />
 
-          <button onClick={this.handleAddUserOnSubmit} className={`btn ${styles.btnAdd}`} >Add</button>
+        <button 
+          onClick={this.handleAddUserOnSubmit} 
+          className={`btn ${styles.btnAdd}`}
+        >
+          Add
+        </button>
 
-          <button onClick={this.removeUser} className={`btn ${styles.btnRemove}`}>Remove</button>
+        <button 
+          onClick={this.removeUser} 
+          className={`btn ${styles.btnRemove}`}
+        >
+          Remove
+        </button>
       </div>
     )
   }

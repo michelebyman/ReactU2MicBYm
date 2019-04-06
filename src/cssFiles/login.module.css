@@ -5,6 +5,7 @@
     border-radius: 5px;
     padding: 10px;
     outline: none;
+    border-radius: 10px 0px 10px 0px;
 }
 
 .hr {
