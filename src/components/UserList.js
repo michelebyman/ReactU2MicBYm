@@ -41,7 +41,7 @@ class UserList extends Component {
         <Link key={i} to={`/user/${user.name}`} 
           className={ this.state.toggleColor ? styles.trueColor : styles.falseColor}> 
           <li className={styles.listItem}>
-            {user.id} 
+            {user.id}.&nbsp;
             {user.name}
             <p className={styles.activeOrNot}>
               {user.isActive ? ' User is: Active' : ' User is: not active'}
